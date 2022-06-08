@@ -24,14 +24,25 @@ app.use("/womens", womens);
 app.use("/kids", kids);
 app.use("/admin", admin);
 
-const port = process.env.PORT || 5000;
 
-app.listen(port, async () => {
+
+// const port = process.env.PORT || 5000;
+
+// app.listen(port, async () => {
+//   try {
+//     await connect();
+//     console.log("Database connected and running on 5000 ");
+//   } catch (err) {
+//     console.log(err.message);
+//   }
+// });
+
+app.listen( process.env.PORT||5000, async()=>{
   try {
-    await connect();
-    console.log("Database connected and running on 5000 ");
-  } catch (err) {
-    console.log(err.message);
+      await connect();
+      console.log('Server Connected Success')
+  } catch (error) {
+      console.log(error)
   }
-});
 
+})
